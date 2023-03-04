@@ -41,7 +41,7 @@ possible path: RRDDLLDDRRRRRR
 function mazeSolver(maze, position = [0, 0], path = "") {
   // get current row and column
   let row = position[0];
-  let column = position[1];
+  let column = position[1]; 
 
   /*check if we are out bounds of the maze || we ARE hitting a blocked cell */
   if (!inBounds() || isBlockedCell()) {
@@ -63,16 +63,16 @@ function mazeSolver(maze, position = [0, 0], path = "") {
   // if the direction is invalid result gets set to undefined
   // if truthy keep going and if false check other directions
 
-  result = mazeSolver(maze, [row, column - 1], "L"); //left
+  result = mazeSolver(maze, [row, column - 1], path + "L"); //left
   if (result) return result;
 
-  result = mazeSolver(maze, [row - 1, column], "U"); //up
+  result = mazeSolver(maze, [row - 1, column], path + "U"); //up
   if (result) return result;
 
-  result = mazeSolver(maze, [row, column + 1], "R"); //right
+  result = mazeSolver(maze, [row, column + 1], path + "R"); //right
   if (result) return result;
 
-  result = mazeSolver(maze, [row + 1, column], "D"); //down
+  result = mazeSolver(maze, [row + 1, column], path + "D"); //down
   if (result) return result;
 
   // Backtrack by unmarking the current cell
